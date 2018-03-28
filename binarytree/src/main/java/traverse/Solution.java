@@ -22,6 +22,7 @@ public class Solution {
 	 */
 	public List<Integer> preorderTraversal(TreeNode root) {
 		List<Integer> result = new ArrayList<>();
+		if (root == null) return result;
 
 		result.add(root.val);
 		if (root.left != null) result.addAll(preorderTraversal(root.left));
@@ -37,6 +38,7 @@ public class Solution {
 	 */
 	public List<Integer> inorderTraversal(TreeNode root) {
 		List<Integer> result = new ArrayList<>();
+		if (root == null) return result;
 
 		if (root.left != null) result.addAll(inorderTraversal(root.left));
 		result.add(root.val);
@@ -52,6 +54,7 @@ public class Solution {
 	 */
 	public List<Integer> postorderTraversal(TreeNode root) {
 		List<Integer> result = new ArrayList<>();
+		if (root == null) return result;
 
 		if (root.left != null) result.addAll(postorderTraversal(root.left));
 		if (root.right != null) result.addAll(postorderTraversal(root.right));

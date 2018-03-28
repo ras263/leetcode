@@ -1,5 +1,6 @@
 package traverse;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.unitils.reflectionassert.ReflectionAssert;
@@ -49,6 +50,13 @@ public class SolutionTest {
 		List<Integer> actual = solution.postorderTraversal(this.root);
 		ReflectionAssert.assertReflectionEquals(Arrays.asList(3, 2, 1), actual);
 		System.out.println(String.format("Actual value is: %s", actual.toString()));
+	}
+
+	@Test
+	public void emptyListOnNullRoot() throws Exception {
+		Assert.assertTrue(solution.preorderTraversal(null).isEmpty());
+		Assert.assertTrue(solution.inorderTraversal(null).isEmpty());
+		Assert.assertTrue(solution.postorderTraversal(null).isEmpty());
 	}
 
 
