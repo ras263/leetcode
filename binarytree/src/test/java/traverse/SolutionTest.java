@@ -33,10 +33,23 @@ public class SolutionTest {
 	@Test
 	public void preorderTraversal() throws Exception {
 		List<Integer> actual = solution.preorderTraversal(this.root);
-		ReflectionAssert.assertLenientEquals(Arrays.asList(1, 2, 3), actual);
+		ReflectionAssert.assertReflectionEquals(Arrays.asList(1, 2, 3), actual);
 		System.out.println(String.format("Actual value is: %s", actual.toString()));
 	}
 
+	@Test
+	public void inorderTraversal() throws Exception {
+		List<Integer> actual = solution.inorderTraversal(this.root);
+		ReflectionAssert.assertReflectionEquals(Arrays.asList(1, 3, 2), actual);
+		System.out.println(String.format("Actual value is: %s", actual.toString()));
+	}
+
+	@Test
+	public void postorderTraversal() throws Exception {
+		List<Integer> actual = solution.postorderTraversal(this.root);
+		ReflectionAssert.assertReflectionEquals(Arrays.asList(3, 2, 1), actual);
+		System.out.println(String.format("Actual value is: %s", actual.toString()));
+	}
 
 
 }
