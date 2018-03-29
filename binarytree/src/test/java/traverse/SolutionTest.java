@@ -16,6 +16,7 @@ import java.util.List;
 public class SolutionTest {
 
 	TreeNode root;
+	TreeNode complexRoot;
 	Solution solution;
 
 	@Before
@@ -27,6 +28,19 @@ public class SolutionTest {
 		second.left = third;
 
 		this.root = root;
+
+		TreeNode node3 = new TreeNode(1);
+		TreeNode node9 = new TreeNode(2);
+		TreeNode node20 = new TreeNode(3);
+		TreeNode node15 = new TreeNode(3);
+		TreeNode node7 = new TreeNode(3);
+
+		node3.left = node9;
+		node3.right = node20;
+		node20.left = node15;
+		node20.right = node7;
+
+		this.complexRoot = node3;
 
 		solution = new Solution();
 	}
@@ -57,6 +71,16 @@ public class SolutionTest {
 		Assert.assertTrue(solution.preorderTraversal(null).isEmpty());
 		Assert.assertTrue(solution.inorderTraversal(null).isEmpty());
 		Assert.assertTrue(solution.postorderTraversal(null).isEmpty());
+	}
+
+	@Test
+	public void levelOrder() throws Exception {
+		List<List<Integer>> expected = Arrays.asList(
+				Arrays.asList(3),
+				Arrays.asList(9, 20),
+				Arrays.asList(15, 7)
+		);
+		ReflectionAssert.assertReflectionEquals(expected, solution.levelOrder(complexRoot));
 	}
 
 
