@@ -12,19 +12,7 @@ public class Solution {
 	 * 2. Add Two Numbers
 	 */
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-		int firstNodeValue = l1.val + l2.val;
-		ListNode result = new ListNode(firstNodeValue % 10);
-		int inc = firstNodeValue / 10;
-
-		if (l1.next != null || l2.next != null || inc == 1) {
-			result.next = addTwoNumbers(
-					(l1.next != null) ? l1.next : new ListNode(0),
-					(l2.next != null) ? l2.next : new ListNode(0),
-					inc
-			);
-		}
-
-		return result;
+		return addTwoNumbers(l1, l2, 0);
 	}
 
 	public ListNode addTwoNumbers(ListNode l1, ListNode l2, int inc) {
