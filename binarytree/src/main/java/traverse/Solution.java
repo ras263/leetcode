@@ -1,6 +1,7 @@
 package traverse;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -69,8 +70,44 @@ public class Solution {
 	 * @return List of traversed tree elements.
 	 */
 	public List<List<Integer>> levelOrder(TreeNode root) {
-		// Stub
-		return new ArrayList<>();
+		List<List<Integer>> result = new ArrayList<>();
+		if (root == null) return result;
+		// First level
+		List<Integer> level1 = new ArrayList<>();
+		level1.add(root.val);
+		result.add(level1);
+
+		// Other levels
+		// Prepare next level
+		// Create linked list with children of the root
+		LinkedList<TreeNode> nextLevel = new LinkedList<>();
+		nextLevel.add(root.left);
+		nextLevel.add(root.right);
+		// Do operations with them
+		while (!nextLevel.isEmpty()) {
+			result.add(levelTraverse(nextLevel));
+			// Replace next level value by another new level
+			nextLevel = getNextLevel(nextLevel);
+		}
+
+		return result;
+	}
+
+	public List<Integer> levelTraverse(LinkedList<TreeNode> nodes) {
+		List<Integer> thisLevel = new ArrayList<>();
+		nodes.forEach(node -> {if (node != null) thisLevel.add(node.val);});
+		return thisLevel;
+	}
+
+	public LinkedList<TreeNode> getNextLevel(LinkedList<TreeNode> nodes) {
+		LinkedList<TreeNode> nextLevel = new LinkedList<>();
+		nodes.forEach(node -> {
+			if (node != null) {
+				if (node.left != null) nextLevel.add(node.left);
+				if (node.right != null) nextLevel.add(node.right);
+			}
+		});
+		return nextLevel;
 	}
 
 }
