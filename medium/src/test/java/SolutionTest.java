@@ -43,4 +43,9 @@ public class SolutionTest {
 		ReflectionAssert.assertReflectionEquals(r, solution.addTwoNumbers(l1, l2));
 	}
 
+	@Test
+	public void addTwoNumbersWithZeros() throws Exception {
+		ReflectionAssert.assertReflectionEquals(new ListNode(0), solution.addTwoNumbers(new ListNode(0), new ListNode(0)));
+	}
+
 }
