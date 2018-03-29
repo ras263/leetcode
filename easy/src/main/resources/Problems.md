@@ -27,3 +27,12 @@ I need to get every element and traverse over them one-after-one.
         a) for counting separate element (in the result case it is '7').
         b) for counting index of other element in the list 
            (it will be added to the value of the first counter).
+           
+#####Accepted
+Next challenges: 
+- 3Sum
+- 4SumTwo 
+- Sum II - Input array is sorted
+- Two Sum III - Data structure design
+- Subarray Sum Equals K
+- Two Sum IV - Input is a BST
