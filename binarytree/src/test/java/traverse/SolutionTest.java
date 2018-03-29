@@ -83,5 +83,14 @@ public class SolutionTest {
 		ReflectionAssert.assertReflectionEquals(expected, solution.levelOrder(complexRoot));
 	}
 
+	@Test
+	public void levelOrderSmall() throws Exception {
+		List<List<Integer>> expected = Arrays.asList(
+				Arrays.asList(1)
+		);
+		TreeNode simpleRoot = new TreeNode(1);
+		ReflectionAssert.assertReflectionEquals(expected, solution.levelOrder(simpleRoot));
+	}
+
 
 }

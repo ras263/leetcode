@@ -85,9 +85,14 @@ public class Solution {
 		nextLevel.add(root.right);
 		// Do operations with them
 		while (!nextLevel.isEmpty()) {
-			result.add(levelTraverse(nextLevel));
-			// Replace next level value by another new level
-			nextLevel = getNextLevel(nextLevel);
+			List<Integer> level = levelTraverse(nextLevel);
+			if (!level.isEmpty()) {
+				result.add(level);
+				// Replace next level value by another new level
+				nextLevel = getNextLevel(nextLevel);
+			} else {
+				break;
+			}
 		}
 
 		return result;
