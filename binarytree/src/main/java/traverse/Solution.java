@@ -17,7 +17,7 @@ import java.util.List;
 public class Solution {
 
 	/**
-	 * Binary Tree Preorder Traversal.
+	 * #144. Binary Tree Preorder Traversal.
 	 * @param root Root element.
 	 * @return List of traversed tree elements.
 	 */
@@ -33,7 +33,7 @@ public class Solution {
 	}
 
 	/**
-	 * Binary Tree Inorder Traversal.
+	 * #94. Binary Tree Inorder Traversal.
 	 * @param root Root element.
 	 * @return List of traversed tree elements.
 	 */
@@ -49,7 +49,7 @@ public class Solution {
 	}
 
 	/**
-	 * Binary Tree Postorder Traversal
+	 * #145. Binary Tree Postorder Traversal
 	 * @param root Root element.
 	 * @return List of traversed tree elements.
 	 */
@@ -65,7 +65,7 @@ public class Solution {
 	}
 
 	/**
-	 * Binary Tree Level Order Traversal
+	 * #102. Binary Tree Level Order Traversal
 	 * @param root Root element.
 	 * @return List of traversed tree elements.
 	 */
@@ -113,6 +113,22 @@ public class Solution {
 			}
 		});
 		return nextLevel;
+	}
+
+	/**
+	 * #104. Maximum Depth of Binary Tree.
+	 *
+	 * Solved.
+	 * @param root Root mode.
+	 * @return Depth of the tree.
+	 */
+	public int maxDepth(TreeNode root) {
+		if (root == null) return 0;
+		int level = 1;
+		return Math.max(
+				level + maxDepth(root.left),
+				level + maxDepth(root.right)
+		);
 	}
 
 }

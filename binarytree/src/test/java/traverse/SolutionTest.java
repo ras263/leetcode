@@ -92,5 +92,10 @@ public class SolutionTest {
 		ReflectionAssert.assertReflectionEquals(expected, solution.levelOrder(simpleRoot));
 	}
 
+	@Test
+	public void maxDepth() throws Exception {
+		Assert.assertTrue(solution.maxDepth(complexRoot) == 3);
+	}
+
 
 }
