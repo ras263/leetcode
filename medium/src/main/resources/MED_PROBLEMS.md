@@ -38,3 +38,7 @@ Examples:
     
     Given "pwwkew", the answer is "wke", with the length of 3.
     
+**Accepted**
+
+Next challenges: 
+ - Longest Substring with At Most Two Distinct Characters

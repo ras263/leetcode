@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by Lakhno Anton
  * at 19:53 29.03.2018.
@@ -32,6 +35,7 @@ public class Solution {
 
 	/**
 	 * 3. Longest Substring Without Repeating Characters
+	 * Correct, but non efficient solution.
 	 */
 	public int lengthOfLongestSubstring(String s) {
 		if (s == null) return 0;
@@ -51,6 +55,35 @@ public class Solution {
 					break;
 				}
 			}
+		}
+		return max;
+	}
+
+	/**
+	 * 3. Longest Substring Without Repeating Characters
+	 * Version 2
+	 */
+	public int lengthOfLongestSubstringV2(String s) {
+		if (s == null) return 0;
+		int max = (!s.isEmpty()) ? 1 : 0;
+		int length = 0;
+		Map<Character, Integer> indices = new HashMap<>();
+		char[] chars = s.toCharArray();
+		for (int i = 0; i < s.length(); i++) {
+			if (indices.containsKey(chars[i])) {
+				Integer prevIndex = indices.get(chars[i]);
+				if (i - length > prevIndex) {
+					length++;
+				} else {
+					length = i - prevIndex;
+				}
+			} else {
+				length++;
+			}
+			if (length > max) {
+				max = length;
+			}
+			indices.put(chars[i], i);
 		}
 		return max;
 	}
