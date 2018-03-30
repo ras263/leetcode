@@ -48,4 +48,11 @@ public class SolutionTest {
 		ReflectionAssert.assertReflectionEquals(new ListNode(0), solution.addTwoNumbers(new ListNode(0), new ListNode(0)));
 	}
 
+	@Test
+	public void lengthOfLongestSubstring() {
+		assertEquals(3, solution.lengthOfLongestSubstring("abcabcbb"));
+		assertEquals(1, solution.lengthOfLongestSubstring("bbbbbb"));
+		assertEquals(3, solution.lengthOfLongestSubstring("pwwkew"));
+	}
+
 }

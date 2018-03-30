@@ -30,4 +30,29 @@ public class Solution {
 		return res;
 	}
 
+	/**
+	 * 3. Longest Substring Without Repeating Characters
+	 */
+	public int lengthOfLongestSubstring(String s) {
+		String max = "";
+		for (int i = 0; i < s.length(); i++) {
+			String from = s.substring(i, i+1);
+			String other = s.substring(i + 1);
+			String substring = from;
+			for (int j = 0; j < other.length(); j++) {
+				String next = other.substring(j, j+1);
+				if (!substring.contains(next)) {
+					substring += next;
+				} else {
+					if (substring.length() > max.length()) {
+						max = substring;
+					}
+					break;
+				}
+			}
+		}
+		System.out.println(max);
+		return max.length();
+	}
+
 }
