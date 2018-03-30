@@ -49,10 +49,20 @@ public class SolutionTest {
 	}
 
 	@Test
-	public void lengthOfLongestSubstring() {
+	public void lengthOfLongestSubstring() throws Exception {
 		assertEquals(3, solution.lengthOfLongestSubstring("abcabcbb"));
 		assertEquals(1, solution.lengthOfLongestSubstring("bbbbbb"));
 		assertEquals(3, solution.lengthOfLongestSubstring("pwwkew"));
+	}
+
+	@Test
+	public void lengthOfLongestSubstringWithSingleCharInput() throws Exception {
+		assertEquals(1, solution.lengthOfLongestSubstring("c"));
+	}
+
+	@Test
+	public void lengthOfLongestSubstringWithAu() throws Exception {
+		assertEquals(2, solution.lengthOfLongestSubstring("au"));
 	}
 
 }
