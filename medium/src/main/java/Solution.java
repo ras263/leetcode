@@ -62,6 +62,9 @@ public class Solution {
 	/**
 	 * 3. Longest Substring Without Repeating Characters
 	 * Version 2
+	 * Solved with manual after being stuck with solution.
+	 * <a href="https://www.geeksforgeeks.org/length-of-the-longest-substring-without-repeating-characters/">
+	 *     Manual is here.</a>
 	 */
 	public int lengthOfLongestSubstringV2(String s) {
 		if (s == null) return 0;
