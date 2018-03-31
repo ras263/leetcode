@@ -156,4 +156,36 @@ public class Solution {
 				&& isSymmetric(left.right, right.left);
 	}
 
+	/**
+	 * #112. Path Sum
+	 *
+	 * Solved.
+	 * @param root Root of the binary tree.
+	 * @param sum Path sum.
+	 * @return Is the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
+	 */
+	public boolean hasPathSum(TreeNode root, int sum) {
+		// Particular cases
+		if (root == null) return false;
+		if (root.val == sum
+				&& root.left == null
+				&& root.right == null) {
+			return true;
+		}
+
+		boolean leftRes = false;
+		boolean rightRes = false;
+
+		if (root.left != null) {
+			root.left.val += root.val;
+			leftRes = hasPathSum(root.left, sum);
+		}
+		if (root.right != null) {
+			root.right.val += root.val;
+			rightRes = hasPathSum(root.right, sum);
+		}
+
+		return leftRes || rightRes;
+	}
+
 }

@@ -121,5 +121,60 @@ public class SolutionTest {
 		Assert.assertTrue(solution.isSymmetric(symRoot));
 	}
 
+	@Test
+	public void hasPathSum() throws Exception {
+		Assert.assertTrue(solution.hasPathSum(buildPathSumRoot(), 22));
+		Assert.assertFalse(solution.hasPathSum(buildPathSumRoot(),  50));
+		Assert.assertFalse(solution.hasPathSum(buildPathSumRoot(),  6));
+	}
+
+	@Test
+	public void hasPathSumWithNull() throws Exception {
+		Assert.assertFalse(solution.hasPathSum(null, 1));
+	}
+
+	@Test
+	public void hasPathSum2() throws Exception {
+		TreeNode root = new TreeNode(-2);
+		root.right = new TreeNode(-3);
+		Assert.assertTrue(solution.hasPathSum(root, -5));
+	}
+
+	@Test
+	public void hasPathSumWithToLeafIsOnlyRight1() throws Exception {
+		TreeNode node1 = new TreeNode(1);
+		node1.left = new TreeNode(2);
+		Assert.assertFalse(solution.hasPathSum(node1, 1));
+	}
+
+	@Test
+	public void hasPathSumWithToLeafIsOnlyRight2() throws Exception {
+		TreeNode node1 = new TreeNode(1);
+		Assert.assertTrue(solution.hasPathSum(node1, 1));
+	}
+
+	private TreeNode buildPathSumRoot() {
+		TreeNode node5 = new TreeNode(5);
+		TreeNode node4 = new TreeNode(4);
+		TreeNode node8 = new TreeNode(8);
+		TreeNode node11 = new TreeNode(11);
+		TreeNode node13 = new TreeNode(13);
+		TreeNode node4b = new TreeNode(4);
+		TreeNode node7b = new TreeNode(7);
+		TreeNode node2 = new TreeNode(2);
+		TreeNode node1b = new TreeNode(1);
+
+		node5.left = node4;
+		node5.right = node8;
+		node4.left = node11;
+		node8.left = node13;
+		node8.right = node4b;
+		node11.left = node7b;
+		node11.right = node2;
+		node4b.right = node1b;
+
+		return node5;
+	}
+
 
 }
