@@ -32,9 +32,9 @@
 ---
 #####2018-03-31. Third day.
 2 problems solved today.
-8 / 772 problems solved overall
+10 / 772 problems solved overall
 
 | # | Name                             |Difficulty|Comment|
 |---|----------------------------------|----------|-------|
 |101|Symmetric Tree                    |   Easy   |       |
-|   |                                  |          |       |
+|112|Path sum                          |   Easy   |       |
