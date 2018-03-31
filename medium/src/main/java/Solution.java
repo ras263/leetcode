@@ -91,4 +91,13 @@ public class Solution {
 		return max;
 	}
 
+	/**
+	 * 5. Longest Palindromic Substring
+	 * @param s Input string.
+	 * @return Longest palindromic substring.
+	 */
+	public String longestPalindrome(String s) {
+		return s; // stub.
+	}
+
 }
