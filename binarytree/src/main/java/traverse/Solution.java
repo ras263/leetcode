@@ -131,4 +131,29 @@ public class Solution {
 		);
 	}
 
+	/**
+	 * Symmetric Tree
+	 * @param root Root node.
+	 * @return Tells us is tree symmetric.
+	 */
+	public boolean isSymmetric(TreeNode root) {
+		return isSymmetric(root, root);
+	}
+
+	/**
+	 * Inner method for symmetric checking tree.
+	 * @param left Left element.
+	 * @param right Right element.
+	 * @return Is tree symmetric.
+	 */
+	private boolean isSymmetric(TreeNode left, TreeNode right) {
+		if (left == null || right == null) {
+			return left == null && right == null;
+		}
+
+		return (left.val == right.val)
+				&& isSymmetric(left.left, right.right)
+				&& isSymmetric(left.right, right.left);
+	}
+
 }

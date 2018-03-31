@@ -30,3 +30,41 @@ Level-order traversal is to traverse the tree level by level.
 When we do breadth-first search in a tree, the order of the nodes we visited is in level order.
 
 Typically, we use a queue to help us to do BFS. If you are not so familiar with the queue, you can find more information about that in another card coming soon.
+
+
+
+##Symmetric Tree
+Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).
+
+For example, this binary tree `[1,2,2,3,4,4,3]` is symmetric:
+
+        1
+       / \
+      2   2
+     / \ / \
+    3  4 4  3
+But the following `[1,2,2,null,3,null,3]` is not:
+
+        1
+       / \
+      2   2
+       \   \
+       3    3
+
+Solution:
+
+    Recursively check left and right nodes.
+    Input : 
+        left - left node,
+        right - right node
+    Should be true for all of following conditions: 
+        - left.val == right.val
+        - isSymmetric(left.left, right.right)
+        - isSymmetric(left.right, right.left)
+    For the root this method call will be like:
+        isSymmetric(root, root);
+        
+    NOTE: Don't forget about null checking.
+          If both nodes are null, then return true, else false.
+
+Solved. Accepted

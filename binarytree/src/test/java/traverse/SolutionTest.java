@@ -17,6 +17,7 @@ public class SolutionTest {
 
 	TreeNode root;
 	TreeNode complexRoot;
+	TreeNode symRoot;
 	Solution solution;
 
 	@Before
@@ -41,6 +42,23 @@ public class SolutionTest {
 		node20.right = node7;
 
 		this.complexRoot = node3;
+
+		TreeNode node1 = new TreeNode(1);
+		TreeNode node2l = new TreeNode(2);
+		TreeNode node2r = new TreeNode(2);
+		TreeNode node3l = new TreeNode(3);
+		TreeNode node3r = new TreeNode(3);
+		TreeNode node4l = new TreeNode(4);
+		TreeNode node4r = new TreeNode(4);
+
+		node1.left = node2l;
+		node1.right = node2r;
+		node2l.left = node3l;
+		node2l.right = node4l;
+		node2r.left = node4r;
+		node2r.right = node3r;
+
+		this.symRoot = node1;
 
 		solution = new Solution();
 	}
@@ -95,6 +113,12 @@ public class SolutionTest {
 	@Test
 	public void maxDepth() throws Exception {
 		Assert.assertTrue(solution.maxDepth(complexRoot) == 3);
+	}
+
+	@Test
+	public void testIsSymmetric() throws Exception {
+		Assert.assertFalse(solution.isSymmetric(complexRoot));
+		Assert.assertTrue(solution.isSymmetric(symRoot));
 	}
 
 
